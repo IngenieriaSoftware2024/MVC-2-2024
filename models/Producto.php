@@ -9,10 +9,15 @@ class Producto extends ActiveRecord
 
     protected static $columnasDB = ['producto_nombre', 'producto_precio'];
 
-    public $id;
-    public $nombre;
-    public $precio;
+    public $producto_id;
+    public $producto_nombre;
+    public $producto_precio;
 
-    
+    public function __construct($args = [])
+    {
+        $this->producto_id = $args['producto_id'] ?? null;
+        $this->producto_nombre = $args['producto_nombre'] ?? '';
+        $this->producto_precio = $args['producto_precio'] ?? 0;
+    }
 
 }

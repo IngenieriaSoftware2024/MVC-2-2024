@@ -6,7 +6,7 @@
     <script src="<?= asset('build/js/app.js')?>"></script>
     <link rel="shortcut icon" href="<?= asset('images/cit.png') ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?= asset('build/styles.css') ?>">
-    <title>DemoApp</title>
+    <title>Tienda Vasquez</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
@@ -17,8 +17,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="/ejemplo/">
-                <img src="<?= asset('./images/cit.png') ?>" width="35px'" alt="cit" >
-                Aplicaciones
+                <img src="<?= asset('./images/tienda.png') ?>" width="35px'" alt="cit" >
+                Tienda
             </a>
             <div class="collapse navbar-collapse" id="navbarToggler">
                 
