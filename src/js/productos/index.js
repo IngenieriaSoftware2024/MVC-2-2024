@@ -1,10 +1,16 @@
-import { Dropdwon } from "bootstrap";
+import { Dropdwon, Tab } from "bootstrap";
 import { config } from "fullcalendar";
 import { Toast, validarFormulario } from "../funciones";
 import Swal from "sweetalert2";
 
 const formulario = document.getElementById('FormProducto');
 const TablaProductos = document.getElementById('ProductosIngresados');
+const BtnGuardar = document.getElementById('BtnGuardar');
+const BtnModificar = document.getElementById('BtnModificar');
+const BtnCancelar = document.getElementById('BtnCancelar');
+
+BtnModificar.parentElement.classList.add('d-none');
+BtnCancelar.parentElement.classList.add('d-none');
 
 const guardar = async (e) => {
     e.preventDefault();
@@ -67,6 +73,7 @@ const guardar = async (e) => {
         }
 
     } catch (error) {
+        console.log(error)
     }
 }
 
@@ -92,14 +99,31 @@ const Buscar = async () => {
             const celda1 = document.createElement('td');
             const celda2 = document.createElement('td');
             const celda3 = document.createElement('td');
+            const celda4 = document.createElement('td');
+            const celda5 = document.createElement('td');
 
+            const BtnModificar = document.createElement('button');
+            const BtnEliminar = document.createElement('button');
+
+            BtnModificar.innerHTML = '<i class="bi bi-pencil"></i>';
+            BtnModificar.classList.add('btn', 'btn-warning', 'w-100', 'text-uppercase', 'fw-bold', 'shadow', 'border-0');
+
+            BtnEliminar.innerHTML = '<i class="bi bi-trash3"></i>';
+            BtnEliminar.classList.add('btn', 'btn-danger', 'w-100', 'text-uppercase', 'fw-bold', 'shadow', 'border-0'); 
+
+            BtnModificar.addEventListener('click', () => llenarDatos(productos));
+            
             celda1.innerText = contador;
             celda2.innerText = productos.producto_nombre;
             celda3.innerText = productos.producto_precio;
+            celda4.appendChild(BtnModificar)
+            celda5.appendChild(BtnEliminar)
 
             tr.appendChild(celda1);
             tr.appendChild(celda2);
             tr.appendChild(celda3);
+            tr.appendChild(celda4);
+            tr.appendChild(celda5);
             
             fragment.appendChild(tr);
             contador++;
@@ -111,7 +135,7 @@ const Buscar = async () => {
         const td = document.createElement('td');
         td.innerText = 'No hay productos Registrados ';
         tr.classList.add('text-center');
-        td.colSpan = 3;
+        td.colSpan = 5;
 
         tr.appendChild(td);
         fragment.appendChild(tr);
@@ -119,5 +143,29 @@ const Buscar = async () => {
     TablaProductos.tBodies[0].appendChild(fragment);
 }
 
+const llenarDatos = (productos) =>{
+
+    console.log(productos)
+    TablaProductos.parentElement.classList.add('d-none');
+    BtnGuardar.parentElement.classList.add('d-none');
+    BtnModificar.parentElement.classList.remove('d-none');
+    BtnCancelar.parentElement.classList.remove('d-none');
+
+    formulario.producto_id.value = productos.producto_id;
+    formulario.producto_nombre.value = productos.producto_nombre;
+    formulario.producto_precio.value = productos.producto_precio;
+}
+
+const Cancelar = () =>{
+
+    TablaProductos.parentElement.classList.remove('d-none');
+    BtnGuardar.parentElement.classList.remove('d-none');
+    BtnModificar.parentElement.classList.add('d-none');
+    BtnCancelar.parentElement.classList.add('d-none');
+    formulario.reset();
+}
+
+
 Buscar();
+BtnCancelar.addEventListener('click', Cancelar)
 formulario.addEventListener('submit', guardar)

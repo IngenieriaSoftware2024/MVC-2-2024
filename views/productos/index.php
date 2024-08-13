@@ -22,6 +22,12 @@
             <div class="col-lg-5">
                 <button type="submit" id="BtnGuardar" class="btn btn-primary w-100 text-uppercase shadow border-0">Guardar</button>
             </div>
+            <div class="col-lg-5">
+                <button type="button" id="BtnModificar" class="btn btn-warning w-100 text-uppercase shadow border-0">Modificar</button>
+            </div>
+            <div class="col-lg-5">
+                <button type="button" id="BtnCancelar" class="btn btn-secondary w-100 text-uppercase shadow border-0">Cancelar</button>
+            </div>
         </div>
     </form>
 
@@ -36,11 +42,13 @@
                             <th>No.</th>
                             <th>Nombres</th>
                             <th>Precio</th>
+                            <th>Modificar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td colspan="3" class="text-center">Sin productos registrados</td>
+                            <td colspan="5" class="text-center">Sin productos registrados</td>
                         </tr>
                     </tbody>
                 </table>

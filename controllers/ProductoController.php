@@ -52,4 +52,10 @@ class ProductoController
             ]);
         }
     }
+
+    public static function BuscarQuery()
+    {
+        $sql = ' SELECT * FROM productos WHERE producto_situacion = 1';
+        // return self::
+    }
 }
