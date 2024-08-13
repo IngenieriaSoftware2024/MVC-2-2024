@@ -18,8 +18,8 @@
                 <input type="number" name="producto_precio" step="any" id="producto_precio" class="form-control">
             </div>
         </div>
-        <div class="row mb-3">
-            <div class="col">
+        <div class="row mb-3 justify-content-center text-center">
+            <div class="col-lg-5">
                 <button type="submit" id="BtnGuardar" class="btn btn-primary w-100 text-uppercase shadow border-0">Guardar</button>
             </div>
         </div>

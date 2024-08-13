@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="<?= asset('build/js/app.js')?>"></script>
-    <link rel="shortcut icon" href="<?= asset('images/cit.png') ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= asset('images/tienda.png') ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?= asset('build/styles.css') ?>">
     <title>Tienda Vasquez</title>
 </head>
@@ -17,7 +17,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="/ejemplo/">
-                <img src="<?= asset('./images/tienda.png') ?>" width="35px'" alt="cit" >
+                <img src="<?= asset('./images/tienda.png') ?>" width="45px'" alt="cit" >
                 Tienda
             </a>
             <div class="collapse navbar-collapse" id="navbarToggler">
