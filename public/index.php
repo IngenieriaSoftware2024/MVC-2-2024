@@ -1,7 +1,7 @@
 <?php 
 require_once __DIR__ . '/../includes/app.php';
 
-
+use Controllers\AplicacionController;
 use MVC\Router;
 use Controllers\AppController;
 use Controllers\ProductoController;
@@ -29,7 +29,7 @@ $router->post('/API/usuario/eliminar', [UsuarioController::class, 'eliminarAPI']
 
 // APLICACIONES
 
-$router->get('/aplicacion', [UsuarioController::class, 'index']);
+$router->get('/aplicacion', [AplicacionController::class, 'index']);
 
 
 

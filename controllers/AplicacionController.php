@@ -4,7 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 
-class UsuarioController
+class AplicacionController
 {
     public static function index(Router $router)
     {
