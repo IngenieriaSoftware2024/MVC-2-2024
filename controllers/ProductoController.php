@@ -103,7 +103,7 @@ class ProductoController
             http_response_code(500);
             echo json_encode([
                 'codigo' => 0,
-                'mensaje' => 'Error al modificar producto',
+                'mensaje' => 'Error al eliminar el producto',
                 'detalle' => $e->getMessage(),
             ]);
         }

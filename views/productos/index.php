@@ -55,5 +55,5 @@
             </div>
         </div>
     </div>
-
-    <script src="<?= asset('./build/js/productos/index.js') ?>"></script>
+</div>
+<script src="<?= asset('./build/js/productos/index.js') ?>"></script>

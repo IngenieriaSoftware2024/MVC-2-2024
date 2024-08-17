@@ -15,6 +15,8 @@ BtnCancelar.parentElement.classList.add('d-none');
 const guardar = async (e) => {
     e.preventDefault();
 
+    BtnGuardar.disabled = true;
+
     if (!validarFormulario(formulario, ['producto_id'])) {
         Swal.fire({
             title: "Campos vacios",
@@ -75,6 +77,9 @@ const guardar = async (e) => {
     } catch (error) {
         console.log(error)
     }
+
+    BtnGuardar.disabled = false;
+
 }
 
 const Buscar = async () => {
