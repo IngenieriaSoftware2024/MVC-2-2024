@@ -30,6 +30,10 @@ $router->post('/API/usuario/eliminar', [UsuarioController::class, 'eliminarAPI']
 // APLICACIONES
 
 $router->get('/aplicacion', [AplicacionController::class, 'index']);
+$router->post('/API/aplicacion/guardar', [AplicacionController::class, 'guardarAPI']);
+$router->get('/API/aplicacion/buscar', [AplicacionController::class, 'buscarAPI']);
+$router->post('/API/aplicacion/modificar', [AplicacionController::class, 'modificarAPI']);
+$router->post('/API/aplicacion/eliminar', [AplicacionController::class, 'eliminarAPI']);
 
 
 

@@ -40,21 +40,20 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="nav-item dropdown ">
+                    <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
                             <i class="bi bi-person-circle me-2"></i>Usuarios
                         </a>
-                        <ul class="dropdown-menu  dropdown-menu-dark " id="dropwdownRevision" style="margin: 0;">
+                        <ul class="dropdown-menu dropdown-menu-dark" id="dropdownRevision" style="margin: 0;">
                             <li>
-                                <a class="dropdown-item  text-white " href="/MVC-2-2024/usuarios"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Creacion de Usuarios</a>
+                                <a class="dropdown-item text-white" href="/MVC-2-2024/usuarios"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Creacion de Usuarios</a>
                             </li>
-                        </ul>
-                        <ul class="dropdown-menu  dropdown-menu-dark " style="margin: 0;">
                             <li>
-                                <a class="dropdown-item  text-white " href="/MVC-2-2024/aplicacion"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Aplicaciones</a>
+                                <a class="dropdown-item text-white" href="/MVC-2-2024/aplicacion"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Aplicaciones</a>
                             </li>
                         </ul>
                     </div>
+
                 </ul>
                 <div class="col-lg-1 d-grid mb-lg-0 mb-2">
                     <!-- Ruta relativa desde el archivo donde se incluye menu.php -->

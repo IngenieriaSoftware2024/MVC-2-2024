@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <form class="border bg-light shadow rounded p-4 col-lg-3" id="formularioAplicaciones">
+    <form class="border bg-light shadow rounded p-4 col-lg-4" id="formularioAplicaciones">
         <h3 class="text-center mb-3"><b>Registro de Aplicaciones</b></h3>
         <input type="hidden" name="app_id" id="app_id">
         <div class="row mb-3">
@@ -10,7 +10,7 @@
         </div>
         <div class="row mb-3 justify-content-center text-center ">
             <div class="col-lg-5">
-                <button type="submit" form="formularioUsuario" id="BtnGuardar" class="btn btn-primary w-100">Guardar</button>
+                <button type="submit" id="BtnGuardar" class="btn btn-primary w-100">Guardar</button>
             </div>
             <div class="col-lg-5">
                 <button type="button" id="BtnModificar" class="btn btn-warning w-100 text-uppercase shadow border-0">Modificar</button>
@@ -25,7 +25,7 @@
         <div class="col-lg-6 table-wrapper">
             <h2 class="text-center mb-4">Aplicaciones Ingresadas</h2>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="AplicacionesIngresados">
+                <table class="table table-bordered table-hover" id="AplicacionesIngresadas">
                     <thead class="table-warning">
                         <tr>
                             <th>No.</th>
