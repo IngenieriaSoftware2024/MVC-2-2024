@@ -24,5 +24,6 @@ CREATE TABLE rol(
     rol_nombre VARCHAR(75),
     rol_nombre_ct VARCHAR(25),
     rol_app INTEGER,
-    rol_situacion SMALLINT DEFAULT 1
+    rol_situacion SMALLINT DEFAULT 1,
+    FOREIGN KEY (rol_app) REFERENCES aplicacion(app_id)
 );

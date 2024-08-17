@@ -8,6 +8,7 @@ module.exports = {
     'js/productos/index' : './src/js/productos/index.js',
     'js/usuarios/index' : './src/js/usuarios/index.js',
     'js/aplicacion/index' : './src/js/aplicacion/index.js',
+    'js/rol/index' : './src/js/rol/index.js',
 
   },
   output: {

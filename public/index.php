@@ -35,6 +35,9 @@ $router->get('/API/aplicacion/buscar', [AplicacionController::class, 'buscarAPI'
 $router->post('/API/aplicacion/modificar', [AplicacionController::class, 'modificarAPI']);
 $router->post('/API/aplicacion/eliminar', [AplicacionController::class, 'eliminarAPI']);
 
+// ROL
+$router->get('/rol', [AplicacionController::class, 'index']);
+
 
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
