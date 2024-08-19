@@ -46,6 +46,10 @@ $router->post('/API/rol/eliminar', [RolController::class, 'eliminarAPI']);
 
 // PERMISO
 $router->get('/permiso', [PermisoController::class, 'index']);
+$router->get('/API/permiso/buscar', [PermisoController::class, 'buscarAPI']);
+$router->post('/API/permiso/guardar', [PermisoController::class, 'guardarAPI']);
+$router->post('/API/permiso/modificar', [PermisoController::class, 'modificarAPI']);
+$router->post('/API/permiso/eliminar', [PermisoController::class, 'eliminarAPI']);
 
 
 

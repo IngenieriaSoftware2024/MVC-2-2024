@@ -1,6 +1,6 @@
 <div class="row justify-content-center mb-5">
     <form class="col-lg-5 border bg-light p-3" id="formularioPermiso">
-    <h3 class="text-center mb-3"><b>Asignacion de permisos</b></h3>
+        <h3 class="text-center mb-3"><b>Asignacion de permisos</b></h3>
         <input type="hidden" name="permiso_id" id="permiso_id">
         <div class="row mb-3">
             <div class="col">
@@ -27,8 +27,8 @@
             </div>
         </div>
 
-        <div class="row mb-3">
-            <div class="col">
+        <div class="row mb-3 text-center justify-content-center">
+            <div class="col-lg-5">
                 <button type="submit" id="btnGuardar" class="btn btn-primary w-100">Guardar</button>
             </div>
             <div class="col">
@@ -65,4 +65,5 @@
         </div>
     </div>
 </div>
+
 <script src="<?= asset('./build/js/permiso/index.js') ?>"></script>

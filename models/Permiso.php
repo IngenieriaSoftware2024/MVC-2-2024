@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class permiso extends ActiveRecord{
+class Permiso extends ActiveRecord{
     public static $tabla = 'permiso';
     public static $columnasDB = ['permiso_usuario', 'permiso_rol','permiso_situacion'];
     public static $idTabla = 'permiso_id';
