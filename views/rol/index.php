@@ -16,8 +16,13 @@
         </div>
         <div class="row mb-3">
             <div class="col">
-                <label for="rol_app">Nombre rol CT</label>
-                <input type="text" name="rol_app" id="rol_app" class="form-control">
+                <label for="rol_app">Aplicacion</label>
+                <select name="rol_app" id="rol_app" class="form-control">
+                    <option value="#">Seleccione...</option>
+                    <?php foreach ($aplicaciones as $app) : ?> 
+                        <option value="<?= $app['app_id'] ?>"> <?=$app['app_nombre']?></option>';
+                    <?php endforeach ?>
+                </select>
             </div>
         </div>
         <div class="row mb-3 justify-content-center text-center ">
@@ -34,21 +39,23 @@
     </form>
 
     <div class="row justify-content-center mt-5">
-        <div class="col-lg-6 table-wrapper">
-            <h2 class="text-center mb-4">Aplicaciones Ingresadas</h2>
+        <div class="col-lg-8 table-wrapper">
+            <h2 class="text-center mb-4">Roles Ingresadas</h2>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="AplicacionesIngresadas">
+                <table class="table table-bordered table-hover" id="RolesIngresadas">
                     <thead class="table-warning">
                         <tr>
                             <th>No.</th>
-                            <th>Nombre de la Aplicacion</th>
+                            <th>Nombre del Rol</th>
+                            <th>Nombre del Rol CT</th>
+                            <th>Aplicacion</th>
                             <th>Modificar</th>
                             <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td colspan="4" class="text-center">No existen registros</td>
+                            <td colspan="6" class="text-center">No hay roles registrados</td>
                         </tr>
                     </tbody>
                 </table>
@@ -56,8 +63,5 @@
         </div>
     </div>
 </div>
-
-
-
 
 <script src="<?= asset('./build/js/rol/index.js') ?>"></script>

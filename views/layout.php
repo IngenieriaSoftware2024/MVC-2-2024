@@ -51,6 +51,12 @@
                             <li>
                                 <a class="dropdown-item text-white" href="/MVC-2-2024/aplicacion"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Aplicaciones</a>
                             </li>
+                            <li>
+                                <a class="dropdown-item text-white" href="/MVC-2-2024/rol"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Asignacion Roles</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-white" href="/MVC-2-2024/permiso"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Permisos</a>
+                            </li>
                         </ul>
                     </div>
 

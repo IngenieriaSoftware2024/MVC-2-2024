@@ -27,3 +27,12 @@ CREATE TABLE rol(
     rol_situacion SMALLINT DEFAULT 1,
     FOREIGN KEY (rol_app) REFERENCES aplicacion(app_id)
 );
+
+CREATE TABLE permiso (
+    permiso_id INT AUTO_INCREMENT PRIMARY KEY,
+    permiso_usuario INTEGER,
+    permiso_rol INTEGER,
+    permiso_situacion SMALLINT DEFAULT 1,
+    FOREIGN KEY (permiso_usuario) REFERENCES usuario (usu_id),
+    FOREIGN KEY (permiso_rol) REFERENCES rol (rol_id)
+)

@@ -1,6 +1,7 @@
 import { Dropdown } from "bootstrap";
 import Swal from "sweetalert2";
 import { validarFormulario } from "../funciones";
+import { FALSE } from "sass";
 
 
 const formulario = document.getElementById('formularioAplicaciones');
@@ -24,6 +25,7 @@ const guardar = async (e) => {
             text: "Debe llenar todos los campos",
             icon: "info"
         })
+        BtnGuardar.disabled = false;
         return
     }
 
@@ -161,7 +163,7 @@ const Cancelar = () => {
     BtnGuardar.parentElement.classList.remove('d-none');
     BtnModificar.parentElement.classList.add('d-none');
     BtnCancelar.parentElement.classList.add('d-none');
-   
+
     formulario.reset();
     Buscar();
 }
@@ -234,7 +236,7 @@ const Modificar = async (e) => {
 
 const Eliminar = async (aplicacion) => {
     let confirmacion = await Swal.fire({
-        title: '¿Está seguro de que desea eliminar este producto?',
+        title: '¿Está seguro de que desea eliminar esta aplicacion?',
         text: "Esta acción es irreversible.",
         icon: 'warning',
         showDenyButton: true,

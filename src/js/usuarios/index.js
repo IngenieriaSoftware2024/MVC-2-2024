@@ -26,6 +26,7 @@ const guardar = async (e) => {
             text: "Debe llenar todos los campos",
             icon: "info"
         })
+        BtnGuardar.disabled = false;
         return
     }
 
@@ -161,7 +162,7 @@ const llenarDatos = (usuarios) => {
     formulario.usu_id.value = usuarios.usu_id;
     formulario.usu_nombre.value = usuarios.usu_nombre;
     formulario.usu_catalogo.value = usuarios.usu_catalogo;
-    formulario.usu_catalogo.setAttribute('readonly', true); 
+    formulario.usu_catalogo.setAttribute('readonly', true);
 }
 
 const Cancelar = () => {
@@ -170,7 +171,7 @@ const Cancelar = () => {
     BtnGuardar.parentElement.classList.remove('d-none');
     BtnModificar.parentElement.classList.add('d-none');
     BtnCancelar.parentElement.classList.add('d-none');
-   
+
     formulario.reset();
     formulario.usu_catalogo.removeAttribute('readonly');
     Buscar();
@@ -261,11 +262,11 @@ const Eliminar = async (usuarios) => {
         }
     });
     if (confirmacion.isConfirmed) {
-        
-        
+
+
         try {
-            
-   
+
+
             const body = new FormData()
             body.append('id', usuarios.usu_id)
 

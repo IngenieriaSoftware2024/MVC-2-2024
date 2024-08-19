@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col text-center">
-    <h1>SISTEMA DE CONTROL DE INVENTARIO</h1>
+    <h1>PROYECTO 2-2024 "mvc"</h1>
   </div>
 </div>
 <div class="row justify-content-center">

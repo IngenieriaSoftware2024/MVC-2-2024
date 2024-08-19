@@ -4,7 +4,9 @@ require_once __DIR__ . '/../includes/app.php';
 use Controllers\AplicacionController;
 use MVC\Router;
 use Controllers\AppController;
+use Controllers\PermisoController;
 use Controllers\ProductoController;
+use Controllers\RolController;
 use Controllers\UsuarioController;
 
 $router = new Router();
@@ -36,7 +38,14 @@ $router->post('/API/aplicacion/modificar', [AplicacionController::class, 'modifi
 $router->post('/API/aplicacion/eliminar', [AplicacionController::class, 'eliminarAPI']);
 
 // ROL
-$router->get('/rol', [AplicacionController::class, 'index']);
+$router->get('/rol', [RolController::class, 'index']);
+$router->post('/API/rol/guardar', [RolController::class, 'guardarAPI']);
+$router->get('/API/rol/buscar', [RolController::class, 'buscarAPI']);
+$router->post('/API/rol/modificar', [RolController::class, 'modificarAPI']);
+$router->post('/API/rol/eliminar', [RolController::class, 'eliminarAPI']);
+
+// PERMISO
+$router->get('/permiso', [PermisoController::class, 'index']);
 
 
 

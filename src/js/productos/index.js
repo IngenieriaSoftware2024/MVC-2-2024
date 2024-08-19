@@ -23,6 +23,7 @@ const guardar = async (e) => {
             text: "Debe llenar todos los campos",
             icon: "info"
         })
+        BtnGuardar.disabled = false;
         return
     }
 
