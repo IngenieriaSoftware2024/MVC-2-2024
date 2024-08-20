@@ -36,7 +36,7 @@
                         <ul class="dropdown-menu  dropdown-menu-dark " id="dropwdownRevision" style="margin: 0;">
                             <!-- <h6 class="dropdown-header">Información</h6> -->
                             <li>
-                                <a class="dropdown-item  text-white " href="/MVC-2-2024/productos"><i class="ms-lg-0 ms-2 bi bi-plus-circle me-2"></i>Productos</a>
+                                <a class="dropdown-item  text-white " href="/MVC-2-2024/productos"><i class="ms-lg-0 ms-2 bi bi-cart-plus me-2"></i>Productos</a>
                             </li>
                         </ul>
                     </div>
@@ -49,13 +49,13 @@
                                 <a class="dropdown-item text-white" href="/MVC-2-2024/usuarios"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Creacion de Usuarios</a>
                             </li>
                             <li>
-                                <a class="dropdown-item text-white" href="/MVC-2-2024/aplicacion"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Aplicaciones</a>
+                                <a class="dropdown-item text-white" href="/MVC-2-2024/aplicacion"><i class="ms-lg-0 ms-2 bi bi-grid-fill me-2"></i>Aplicaciones</a>
                             </li>
                             <li>
-                                <a class="dropdown-item text-white" href="/MVC-2-2024/rol"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Asignacion Roles</a>
+                                <a class="dropdown-item text-white" href="/MVC-2-2024/rol"><i class="ms-lg-0 ms-2 bi bi-person-fill-gear me-2"></i>Asignacion Roles</a>
                             </li>
                             <li>
-                                <a class="dropdown-item text-white" href="/MVC-2-2024/permiso"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Permisos</a>
+                                <a class="dropdown-item text-white" href="/MVC-2-2024/permiso"><i class="ms-lg-0 ms-2 bi bi-shield-lock me-2"></i>Permisos</a>
                             </li>
                         </ul>
                     </div>

@@ -152,7 +152,7 @@ const Buscar = async () => {
 
 const llenarDatos = (productos) => {
 
-    TablaProductos.parentElement.classList.add('d-none');
+    TablaProductos.parentElement.parentElement.classList.add('d-none');
     BtnGuardar.parentElement.classList.add('d-none');
     BtnModificar.parentElement.classList.remove('d-none');
     BtnCancelar.parentElement.classList.remove('d-none');
@@ -164,7 +164,7 @@ const llenarDatos = (productos) => {
 
 const Cancelar = () => {
 
-    TablaProductos.parentElement.classList.remove('d-none');
+    TablaProductos.parentElement.parentElement.classList.remove('d-none');
     BtnGuardar.parentElement.classList.remove('d-none');
     BtnModificar.parentElement.classList.add('d-none');
     BtnCancelar.parentElement.classList.add('d-none');

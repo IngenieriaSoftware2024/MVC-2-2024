@@ -59,7 +59,7 @@ class ProductoController
     public static function modificarAPI()
     {
         $_POST['producto_nombre'] = htmlspecialchars($_POST['producto_nombre']);
-        $_POST['producto_precio'] = filter_var($_POST['producto_precio'], FILTER_SANITIZE_NUMBER_FLOAT);
+        $_POST['producto_precio'] = filter_var($_POST['producto_precio'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
         $id = filter_var($_POST['producto_id'], FILTER_SANITIZE_NUMBER_INT);
         try {
 
@@ -80,6 +80,7 @@ class ProductoController
             ]);
         }
     }
+
 
     public static function eliminarAPI()
     {

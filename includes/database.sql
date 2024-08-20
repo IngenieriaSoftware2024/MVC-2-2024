@@ -9,7 +9,7 @@ CREATE TABLE usuario(
     usu_id INT AUTO_INCREMENT PRIMARY KEY,
     usu_nombre VARCHAR(50),
     usu_catalogo INTEGER,
-    usu_password VARCHAR(50),
+    usu_password VARCHAR(150),
     usu_situacion SMALLINT DEFAULT 1
 );
 

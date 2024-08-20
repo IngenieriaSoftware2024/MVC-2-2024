@@ -113,6 +113,7 @@ class ActiveRecord {
         // debuguear($query);
 
         // Resultado de la consulta
+
         $resultado = self::$db->exec($query);
 
         return [
@@ -151,7 +152,8 @@ class ActiveRecord {
         }
 
         // debuguear($query);
-
+        // echo json_encode($query);
+        // exit;
         $resultado = self::$db->exec($query);
         return [
             'resultado' =>  $resultado,
