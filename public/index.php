@@ -4,6 +4,7 @@ require_once __DIR__ . '/../includes/app.php';
 use Controllers\AplicacionController;
 use MVC\Router;
 use Controllers\AppController;
+use Controllers\LoginController;
 use Controllers\PermisoController;
 use Controllers\ProductoController;
 use Controllers\RolController;
@@ -12,7 +13,10 @@ use Controllers\UsuarioController;
 $router = new Router();
 $router->setBaseURL('/' . $_ENV['APP_NAME']);
 
-$router->get('/', [AppController::class,'index']);
+// $router->get('/', [AppController::class,'index']);
+
+//login
+$router->get('/', [LoginController::class, 'login']); 
 
 // PRODUCTOS
 $router->get('/productos', [ProductoController::class, 'index']);
