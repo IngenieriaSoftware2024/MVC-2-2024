@@ -11,7 +11,9 @@ class UsuarioController
 {
     public static function index(Router $router)
     {
-        $router->render('usuarios/index', []);
+        isAuth();
+        hasPermission(['TIENDA_ADMIN', 'TIENDA_USER']);
+        $router->render('usuarios/index', [], 'layouts/menu');
     }
     public static function guardarAPI()
     {

@@ -2,6 +2,8 @@ import { Dropdwon, Tab } from "bootstrap";
 import { config } from "fullcalendar";
 import { Toast, validarFormulario } from "../funciones";
 import Swal from "sweetalert2";
+import DataTable from "datatables.net-bs5";
+import { lenguaje } from "../lenguaje";
 
 const formulario = document.getElementById('FormProducto');
 const TablaProductos = document.getElementById('ProductosIngresados');
@@ -12,36 +14,69 @@ const BtnCancelar = document.getElementById('BtnCancelar');
 BtnModificar.parentElement.classList.add('d-none');
 BtnCancelar.parentElement.classList.add('d-none');
 
+const datatable = new DataTable('#ProductosIngresados', {
+    data: null,
+    language: lenguaje,
+    columns: [
+        {
+            title: 'No.',
+            data: 'producto_id',
+            width: '%',
+            render: (data, type, row, meta) => {
+                return meta.row + 1;
+            }
+        },
+        {
+            title: 'Nombre',
+            data: 'producto_nombre'
+        },
+        {
+            title: 'Precio',
+            data: 'producto_precio'
+        },
+        {
+            title: 'Acciones',
+            data: 'producto_id',
+            searchable: false,
+            orderable: false,
+            render: (data, type, row, meta) => {
+                return `
+                <button class='btn btn-warning modificar' data-id="${data}" data-nombre="${row.producto_nombre}" data-precio="${row.producto_precio}"><i class='bi bi-pencil-square'></i> Modificar</button>
+                <button class='btn btn-danger eliminar' data-id="${data}"><i class='bi bi-trash'></i> Eliminar</button>
+                `;
+            }
+        },
+    ]
+});
+
 const guardar = async (e) => {
     e.preventDefault();
-
     BtnGuardar.disabled = true;
 
     if (!validarFormulario(formulario, ['producto_id'])) {
         Swal.fire({
-            title: "Campos vacios",
+            title: "Campos vacíos",
             text: "Debe llenar todos los campos",
             icon: "info"
-        })
+        });
         BtnGuardar.disabled = false;
-        return
+        return;
     }
 
     try {
-        const body = new FormData(formulario)
+        const body = new FormData(formulario);
         const url = '/MVC-2-2024/API/productos/guardar';
 
         const config = {
             method: 'POST',
             body
-        }
+        };
 
         const respuesta = await fetch(url, config);
         const data = await respuesta.json();
-        const { codigo, mensaje, detalle } = data
+        const { codigo, mensaje } = data;
 
-        if (codigo == 1) {
-
+        if (codigo === 1) {
             Swal.fire({
                 title: '¡Éxito!',
                 text: mensaje,
@@ -54,7 +89,6 @@ const guardar = async (e) => {
                     title: 'custom-title-class',
                     text: 'custom-text-class'
                 }
-
             });
             formulario.reset();
             Buscar();
@@ -62,7 +96,7 @@ const guardar = async (e) => {
             Swal.fire({
                 title: '¡Error!',
                 text: mensaje,
-                icon: 'danger',
+                icon: 'error',
                 showConfirmButton: false,
                 timer: 1500,
                 timerProgressBar: true,
@@ -71,133 +105,79 @@ const guardar = async (e) => {
                     title: 'custom-title-class',
                     text: 'custom-text-class'
                 }
-
             });
         }
-
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 
     BtnGuardar.disabled = false;
-
-}
+};
 
 const Buscar = async () => {
-
     const url = '/MVC-2-2024/API/productos/buscar';
 
     const config = {
         method: 'GET'
-    }
+    };
 
     const respuesta = await fetch(url, config);
-    const data = await respuesta.json();
+    const datos = await respuesta.json();
+    datatable.clear().draw();
 
-
-    TablaProductos.tBodies[0].innerHTML = '';
-    const fragment = document.createDocumentFragment();
-    let contador = 1;
-
-    if (data.length > 0) {
-        data.forEach(productos => {
-            const tr = document.createElement('tr');
-            const celda1 = document.createElement('td');
-            const celda2 = document.createElement('td');
-            const celda3 = document.createElement('td');
-            const celda4 = document.createElement('td');
-            const celda5 = document.createElement('td');
-
-            const BtnModificar = document.createElement('button');
-            const BtnEliminar = document.createElement('button');
-
-            BtnModificar.innerHTML = '<i class="bi bi-pencil"></i>';
-            BtnModificar.classList.add('btn', 'btn-warning', 'w-100', 'text-uppercase', 'fw-bold', 'shadow', 'border-0');
-
-            BtnEliminar.innerHTML = '<i class="bi bi-trash3"></i>';
-            BtnEliminar.classList.add('btn', 'btn-danger', 'w-100', 'text-uppercase', 'fw-bold', 'shadow', 'border-0');
-
-            BtnModificar.addEventListener('click', () => llenarDatos(productos));
-            BtnEliminar.addEventListener('click', () => Eliminar(productos))
-
-            celda1.innerText = contador;
-            celda2.innerText = productos.producto_nombre;
-            celda3.innerText = productos.producto_precio;
-            celda4.appendChild(BtnModificar)
-            celda5.appendChild(BtnEliminar)
-
-            tr.appendChild(celda1);
-            tr.appendChild(celda2);
-            tr.appendChild(celda3);
-            tr.appendChild(celda4);
-            tr.appendChild(celda5);
-
-            fragment.appendChild(tr);
-            contador++;
-
-        })
-
-    } else {
-        const tr = document.createElement('tr');
-        const td = document.createElement('td');
-        td.innerText = 'No hay productos Registrados ';
-        tr.classList.add('text-center');
-        td.colSpan = 5;
-
-        tr.appendChild(td);
-        fragment.appendChild(tr);
+    if (datos) {
+        datatable.rows.add(datos).draw();
     }
-    TablaProductos.tBodies[0].appendChild(fragment);
-}
+};
 
-const llenarDatos = (productos) => {
+const llenarDatos = (e) => {
+    const elemento = e.currentTarget.dataset;
 
     TablaProductos.parentElement.parentElement.classList.add('d-none');
     BtnGuardar.parentElement.classList.add('d-none');
     BtnModificar.parentElement.classList.remove('d-none');
     BtnCancelar.parentElement.classList.remove('d-none');
 
-    formulario.producto_id.value = productos.producto_id;
-    formulario.producto_nombre.value = productos.producto_nombre;
-    formulario.producto_precio.value = productos.producto_precio;
-}
+    formulario.producto_id.value = elemento.id;
+    formulario.producto_nombre.value = elemento.nombre;
+    formulario.producto_precio.value = elemento.precio;
+};
 
 const Cancelar = () => {
-
     TablaProductos.parentElement.parentElement.classList.remove('d-none');
     BtnGuardar.parentElement.classList.remove('d-none');
     BtnModificar.parentElement.classList.add('d-none');
     BtnCancelar.parentElement.classList.add('d-none');
     formulario.reset();
-}
+    Buscar();
+};
 
 const Modificar = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!validarFormulario(formulario)) {
         Swal.fire({
-            title: "Campos vacios",
+            title: "Campos vacíos",
             text: "Debe llenar todos los campos",
             icon: "info"
-        })
-        return
+        });
+        return;
     }
 
     try {
-        const body = new FormData(formulario)
+        const body = new FormData(formulario);
         const url = '/MVC-2-2024/API/productos/modificar';
 
         const config = {
             method: 'POST',
             body
-        }
+        };
 
         const respuesta = await fetch(url, config);
         const data = await respuesta.json();
-        const { codigo, mensaje, detalle } = data
+        const { codigo, mensaje } = data;
 
-        if (codigo == 3) {
-
+        if (codigo === 3) {
             Swal.fire({
                 title: '¡Éxito!',
                 text: mensaje,
@@ -210,7 +190,6 @@ const Modificar = async (e) => {
                     title: 'custom-title-class',
                     text: 'custom-text-class'
                 }
-
             });
             formulario.reset();
             Cancelar();
@@ -219,7 +198,7 @@ const Modificar = async (e) => {
             Swal.fire({
                 title: '¡Error!',
                 text: mensaje,
-                icon: 'danger',
+                icon: 'error',
                 showConfirmButton: false,
                 timer: 1500,
                 timerProgressBar: true,
@@ -228,16 +207,16 @@ const Modificar = async (e) => {
                     title: 'custom-title-class',
                     text: 'custom-text-class'
                 }
-
             });
         }
     } catch (error) {
         console.log(error);
     }
-}
+};
 
+const Eliminar = async (e) => {
+    const id = e.currentTarget.dataset.id;
 
-const Eliminar = async (productos) => {
     let confirmacion = await Swal.fire({
         title: '¿Está seguro de que desea eliminar este producto?',
         text: "Esta acción es irreversible.",
@@ -256,25 +235,23 @@ const Eliminar = async (productos) => {
             denyButton: 'custom-deny-button'
         }
     });
+
     if (confirmacion.isConfirmed) {
-
         try {
-
-            const body = new FormData()
-            body.append('id', productos.producto_id)
+            const body = new FormData();
+            body.append('id', id);
 
             const url = '/MVC-2-2024/API/productos/eliminar';
             const config = {
                 method: 'POST',
                 body
-            }
+            };
 
             const respuesta = await fetch(url, config);
             const data = await respuesta.json();
-            const { codigo, mensaje, detalle } = data
+            const { codigo, mensaje } = data;
 
-            if (codigo == 4) {
-
+            if (codigo === 4) {
                 Swal.fire({
                     title: '¡Éxito!',
                     text: mensaje,
@@ -287,7 +264,6 @@ const Eliminar = async (productos) => {
                         title: 'custom-title-class',
                         text: 'custom-text-class'
                     }
-
                 });
                 formulario.reset();
                 Buscar();
@@ -295,7 +271,7 @@ const Eliminar = async (productos) => {
                 Swal.fire({
                     title: '¡Error!',
                     text: mensaje,
-                    icon: 'danger',
+                    icon: 'error',
                     showConfirmButton: false,
                     timer: 1500,
                     timerProgressBar: true,
@@ -304,16 +280,19 @@ const Eliminar = async (productos) => {
                         title: 'custom-title-class',
                         text: 'custom-text-class'
                     }
-
                 });
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
-}
+};
 
 Buscar();
+
 BtnCancelar.addEventListener('click', Cancelar)
 formulario.addEventListener('submit', guardar)
 BtnModificar.addEventListener('click', Modificar)
+
+datatable.on('click', '.modificar', llenarDatos)
+datatable.on('click', '.eliminar', Eliminar)

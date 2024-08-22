@@ -16,7 +16,10 @@ $router->setBaseURL('/' . $_ENV['APP_NAME']);
 // $router->get('/', [AppController::class,'index']);
 
 //login
-$router->get('/', [LoginController::class, 'login']); 
+$router->get('/', [LoginController::class, 'login']);
+$router->post('/API/login', [LoginController::class, 'loginAPI']);
+$router->get('/menu', [LoginController::class, 'menu']);
+$router->get('/logout', [LoginController::class, 'logout']);
 
 // PRODUCTOS
 $router->get('/productos', [ProductoController::class, 'index']);

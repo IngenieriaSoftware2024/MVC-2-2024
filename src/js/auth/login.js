@@ -14,6 +14,59 @@ const IniciarSesion = async (e) => {
         })
         return
     }
+
+    try {
+        const body = new FormData(formulario)
+        const url = '/MVC-2-2024/API/login';
+
+        const config = {
+            method: 'POST',
+            body
+        }
+
+        const respuesta = await fetch(url, config);
+        const data = await respuesta.json();
+        const { codigo, mensaje, detalle } = data
+
+        if (codigo == 1) {
+
+            Swal.fire({
+                title: '¡Éxito!',
+                text: mensaje,
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+                background: '#e0f7fa',
+                customClass: {
+                    title: 'custom-title-class',
+                    text: 'custom-text-class'
+                }
+
+            });
+            formulario.reset();
+            location.href = '/MVC-2-2024/menu'
+        } else {
+            Swal.fire({
+                title: '¡Error!',
+                text: mensaje,
+                icon: 'warning',
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+                background: '#e0f7fa',
+                customClass: {
+                    title: 'custom-title-class',
+                    text: 'custom-text-class'
+                }
+
+            });
+        }
+
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
 formulario.addEventListener('submit', IniciarSesion)

@@ -33,27 +33,16 @@
 
     <!-- MOSTRAR DATOS -->
     <div class="row justify-content-center mt-4">
-        <div class="col-lg-6 table-wrapper">
+        <div class="col-lg-10 table-wrapper">
             <h2 class="text-center mb-4">Productos Ingresados</h2>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="ProductosIngresados">
-                    <thead class="table-warning">
-                        <tr>
-                            <th>No.</th>
-                            <th>Nombres</th>
-                            <th>Precio</th>
-                            <th>Modificar</th>
-                            <th>Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="5" class="text-center">Sin productos registrados</td>
-                        </tr>
-                    </tbody>
+                <table class="table table-bordered table-hover w-100" id="ProductosIngresados">
                 </table>
             </div>
         </div>
     </div>
 </div>
+<script>
+    var userRole = '<?= $_SESSION['user']['rol_nombre_ct'] ?>';
+</script>
 <script src="<?= asset('./build/js/productos/index.js') ?>"></script>

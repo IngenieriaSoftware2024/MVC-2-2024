@@ -12,13 +12,15 @@ class PermisoController
 {
 
     public static function index(Router $router){
+        isAuth();
+        hasPermission(['TIENDA_ADMIN', 'TIENDA_USER']);
         $usuarios = static::buscarUsuario();
         $roles = static::buscarRol();
 
         $router->render('permiso/index', [
             'usuarios' => $usuarios,
             'roles' => $roles,
-        ]);
+        ], 'layouts/menu' );
     }
 
     public static function buscarUsuario()

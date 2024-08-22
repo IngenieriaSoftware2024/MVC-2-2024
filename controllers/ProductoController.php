@@ -11,7 +11,8 @@ class ProductoController
 {
     public static function index(Router $router)
     {
-        $router->render('productos/index', []);
+        isAuth();
+        $router->render('productos/index', [], 'layouts/menu');
     }
 
     public static function guardarAPI()

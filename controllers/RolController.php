@@ -11,12 +11,14 @@ class RolController
 {
     public static function index(Router $router)
     {   
+        isAuth();
+        hasPermission(['TIENDA_ADMIN', 'TIENDA_USER']);
         $sql = "SELECT * FROM aplicacion where app_situacion = 1";
 
         $resultado = Aplicacion::fetchArray($sql);
         $router->render('rol/index', [
             'aplicaciones' => $resultado
-        ]);
+        ], 'layouts/menu');
     }
 
     public static function guardarAPI()

@@ -15,15 +15,15 @@ function s($html) {
 
 // Función que revisa que el usuario este autenticado
 function isAuth() {
-    session_start();
-    if(!isset($_SESSION['login'])) {
-        header('Location: /');
+    
+    if(!isset($_SESSION['user'])) {
+        header('Location: /MVC-2-2024/');
     }
 }
 function isAuthApi() {
     getHeadersApi();
     session_start();
-    if(!isset($_SESSION['auth_user'])) {
+    if(!isset($_SESSION['user'])) {
         echo json_encode([    
             "mensaje" => "No esta autenticado",
 
@@ -35,7 +35,7 @@ function isAuthApi() {
 
 function isNotAuth(){
     session_start();
-    if(isset($_SESSION['auth'])) {
+    if(isset($_SESSION['user'])) {
         header('Location: menu');
     }
 }

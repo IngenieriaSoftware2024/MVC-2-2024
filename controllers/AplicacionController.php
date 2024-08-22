@@ -10,7 +10,10 @@ class AplicacionController
 {
     public static function index(Router $router)
     {
-        $router->render('aplicacion/index', []);
+        isAuth();
+        hasPermission(['TIENDA_ADMIN', 'TIENDA_USER']);
+        // $router->render('pages/menu', [], 'layouts/menu');
+        $router->render('aplicacion/index', [], 'layouts/menu');
     }
 
     public static function guardarAPI()
