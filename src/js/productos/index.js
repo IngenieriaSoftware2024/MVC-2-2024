@@ -40,10 +40,28 @@ const datatable = new DataTable('#ProductosIngresados', {
             searchable: false,
             orderable: false,
             render: (data, type, row, meta) => {
-                return `
-                <button class='btn btn-warning modificar' data-id="${data}" data-nombre="${row.producto_nombre}" data-precio="${row.producto_precio}"><i class='bi bi-pencil-square'></i> Modificar</button>
-                <button class='btn btn-danger eliminar' data-id="${data}"><i class='bi bi-trash'></i> Eliminar</button>
-                `;
+                // Solo los administradores verán los botones de modificar y eliminar
+                if (userRole === 'TIENDA_ADMIN') {
+                    return `
+                        <div class='d-flex justify-content-center'>
+                            <button class='btn btn-warning modificar mx-1' data-id="${data}" data-nombre="${row.producto_nombre}" data-precio="${row.producto_precio}">
+                                <i class='bi bi-pencil-square'></i> Modificar
+                            </button>
+                            <button class='btn btn-danger eliminar mx-1' data-id="${data}">
+                                <i class='bi bi-trash'></i> Eliminar
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    // Si no es administrador, puedes mostrar un botón de "Ver" o dejar vacío
+                    return `
+                       <div class='d-flex justify-content-center'>
+                            <button class='btn btn-info ver mx-1' data-id="${data}">
+                                <i class='bi bi-check'></i>Adquirir
+                            </button>
+                        </div>
+                    `;
+                }
             }
         },
     ]

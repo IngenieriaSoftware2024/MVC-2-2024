@@ -4,6 +4,8 @@ require_once __DIR__ . '/../includes/app.php';
 use Controllers\AplicacionController;
 use MVC\Router;
 use Controllers\AppController;
+use Controllers\ChartController;
+use Controllers\DetalleController;
 use Controllers\LoginController;
 use Controllers\PermisoController;
 use Controllers\ProductoController;
@@ -57,6 +59,10 @@ $router->get('/API/permiso/buscar', [PermisoController::class, 'buscarAPI']);
 $router->post('/API/permiso/guardar', [PermisoController::class, 'guardarAPI']);
 $router->post('/API/permiso/modificar', [PermisoController::class, 'modificarAPI']);
 $router->post('/API/permiso/eliminar', [PermisoController::class, 'eliminarAPI']);
+
+// CHARTS
+$router->get('/productos/estadistica', [DetalleController::class, 'estadisticas']);
+$router->get('/API/detalle/estadistica', [DetalleController::class, 'detalleVentaAPI']);
 
 
 

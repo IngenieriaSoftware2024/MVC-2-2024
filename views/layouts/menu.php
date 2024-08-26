@@ -33,29 +33,37 @@
                             <li>
                                 <a class="dropdown-item  text-white " href="/MVC-2-2024/productos"><i class="ms-lg-0 ms-2 bi bi-cart-plus me-2"></i>Productos</a>
                             </li>
+                            <li>
+                                <a class="dropdown-item  text-white " href="/MVC-2-2024/productos/estadistica"><i class="bi bi-bar-chart-steps me-2"></i>estadistica</a>
+                            </li>
                         </ul>
+                        
                     </div>
-                    
-                    <?php if ($_SESSION['user']['rol_nombre_ct'] == 'TIENDA_ADMIN') : ?>
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-person-circle me-2"></i>Usuarios
+                    <!-- <div class="nav-item dropdown">
+                        <a class="nav-link" href="/MVC-2-2024/charts">
+                            <i class="bi bi-bar-chart-steps me-2"></i>ChartJS
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-dark" id="dropdownRevision" style="margin: 0;">
-                            <li>
-                                <a class="dropdown-item text-white" href="/MVC-2-2024/usuarios"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Creacion de Usuarios</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="/MVC-2-2024/aplicacion"><i class="ms-lg-0 ms-2 bi bi-grid-fill me-2"></i>Aplicaciones</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="/MVC-2-2024/rol"><i class="ms-lg-0 ms-2 bi bi-person-fill-gear me-2"></i>Asignacion Roles</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="/MVC-2-2024/permiso"><i class="ms-lg-0 ms-2 bi bi-shield-lock me-2"></i>Permisos</a>
-                            </li>
-                        </ul>
-                    </div>
+                    </div> -->
+                    <?php if ($_SESSION['user']['rol_nombre_ct'] == 'TIENDA_ADMIN') : ?>
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                <i class="bi bi-person-circle me-2"></i>Usuarios
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" id="dropdownRevision" style="margin: 0;">
+                                <li>
+                                    <a class="dropdown-item text-white" href="/MVC-2-2024/usuarios"><i class="ms-lg-0 ms-2 bi bi-person-add me-2"></i>Creacion de Usuarios</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-white" href="/MVC-2-2024/aplicacion"><i class="ms-lg-0 ms-2 bi bi-grid-fill me-2"></i>Aplicaciones</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-white" href="/MVC-2-2024/rol"><i class="ms-lg-0 ms-2 bi bi-person-fill-gear me-2"></i>Asignacion Roles</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-white" href="/MVC-2-2024/permiso"><i class="ms-lg-0 ms-2 bi bi-shield-lock me-2"></i>Permisos</a>
+                                </li>
+                            </ul>
+                        </div>
                     <?php endif; ?>
                 </ul>
                 <div class="col-lg-1 d-grid mb-lg-0 mb-2">

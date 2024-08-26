@@ -28,4 +28,6 @@ class Producto extends ActiveRecord
     //     return self::fetchArray($sql);
     // }
 
+    
+
 }

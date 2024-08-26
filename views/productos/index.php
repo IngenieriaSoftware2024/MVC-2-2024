@@ -43,6 +43,6 @@
     </div>
 </div>
 <script>
-    var userRole = '<?= $_SESSION['user']['rol_nombre_ct'] ?>';
+    const userRole = '<?= $_SESSION['user']['rol_nombre_ct'] ?>';
 </script>
 <script src="<?= asset('./build/js/productos/index.js') ?>"></script>

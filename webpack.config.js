@@ -12,7 +12,7 @@ module.exports = {
     'js/permiso/index' : './src/js/permiso/index.js',
     'js/auth/login' : './src/js/auth/login.js',
     'js/menu/menu' : './src/js/menu/menu.js',
-
+    'js/productos/estadistica' : './src/js/productos/estadistica.js',
 
   },
   output: {
